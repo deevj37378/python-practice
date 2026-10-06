@@ -37,3 +37,22 @@ def slow_add(a, b):
     return a + b
 
 print(slow_add(5, 6))
+
+#Question6
+class FileLogger():
+    def __init__(self, filename):
+        self.filename = filename
+    def __enter__(self):
+        self.file = open(self.filename, "a")
+        print(f"Opening {self.filename}")
+        return self
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.file.close()
+        print(f"Closing {self.filename}")
+    def write(self, msg):
+        self.file.write(msg + "\n")
+
+with FileLogger("log.txt") as logger:
+    logger.write("first line")
+    logger.write("second line")
+    raise ValueError("test")
