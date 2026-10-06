@@ -1,3 +1,4 @@
+#Question 1
 from math import sqrt
 
 class Vector2D:
@@ -28,6 +29,8 @@ print(v1)
 print(v1.magnitude)
 print(Vector2D.from_tuple((5,6)))
 
+#Question 4
+
 class CountDown():
     def __init__(self, start):
         self.start = start
@@ -48,5 +51,11 @@ cd = CountDown(5)
 for num in cd:
     print(num)
 
+#Question 5
+def countdown_gen(start):
+    while start >= 1:
+        yield start
+        start -= 1
 
-
+for num in countdown_gen(7):
+    print(num)

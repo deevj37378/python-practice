@@ -1,3 +1,4 @@
+#Question 2
 import time
 def timer(func):
     def wrapper(*args, **kwargs):
@@ -16,6 +17,7 @@ def slow_add(a,  b):
 
 print(slow_add(5,6))
 
+#Question 3
 
 def timer(precision=2):
     def decorator(func):
