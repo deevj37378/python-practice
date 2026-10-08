@@ -59,3 +59,39 @@ def countdown_gen(start):
 
 for num in countdown_gen(7):
     print(num)
+
+#Question7
+
+def withdraw(balance, amount):
+        if amount <= 0:
+            raise InvalidAmountError
+        if balance < amount:
+            raise InsufficientFundsError
+        return balance - amount
+
+class BankError(Exception):
+    ...
+class InsufficientFundsError(BankError):
+    ...
+class InvalidAmountError(BankError):
+    ...
+
+
+testcases = [
+    (100,50),
+    (100,200),
+    (100,-50)
+]
+
+for balance, amount in testcases:
+    try:
+        t1 = withdraw(balance, amount)
+        print(t1)
+    except InsufficientFundsError:
+        print("Not enough funds in bank account")
+
+    except InvalidAmountError:
+            print("Enter a valid amount")
+    finally:
+        print("Transaction completed")
+
